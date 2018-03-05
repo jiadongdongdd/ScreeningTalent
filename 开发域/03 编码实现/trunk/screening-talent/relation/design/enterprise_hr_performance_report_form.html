@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="X-CSRF-TOKEN" content="1d426c80-2e13-43c0-8795-9dba87d06487">
+    <link rel="shortcut icon" href="static/favicon.ico">
+
+    <title>招聘报告 | 前台</title>
+
+    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="static/css/xsifter.css" rel="stylesheet"/>
+    <link href="static/daterangepicker.min.css" rel="stylesheet"/>
+
+    <script src="static/jquery.min.js"></script>
+
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+
+    <style>
+        .navbar {
+            height: 56px;
+        }
+
+        .invite_register {
+            position: relative;
+            min-width: 50px;
+            height: 56px;
+            display: inline-block;
+            top: 8px;
+        }
+
+        .navbar .navbar-inner {
+            border: 0;
+            -webkit-border-radius: 0;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 0;
+            -moz-background-clip: padding;
+            border-radius: 0;
+            background-clip: padding-box;
+            margin: 0;
+            padding-left: 0;
+            padding-right: 0;
+            min-height: 55px;
+            position: relative;
+            background: #333;
+        }
+
+        #log_out {
+            width: 100%;
+            margin: 0px;
+            height: 45px;
+            text-align: left;
+            padding-left: 24%;
+            line-height: 45px;
+            border-bottom: 1px dotted #000;
+            color: #303030;
+            font-weight: bold;
+            font-size: 13px;
+            font-family: "Microsoft YaHei";
+            position: relative;
+            top: 5px;
+        }
+
+        #navbar .nav.navbar-nav.navbar-right li:nth-child(1) {
+            margin-right: 31px;
+            margin-top: -8px;
+        }
+
+        .date-picker-wrapper.date-range-picker19 .day.first-date-selected {
+            background-color: red !important;
+        }
+
+        .date-picker-wrapper.date-range-picker19 .day.last-date-selected {
+            background-color: orange !important;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=""><img alt="Brand"
+                                                 src="static/logo.png"> </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a id="adminPage" href=""
+                       class="invite_register">邀请注册</a></li>
+
+
+                <li><span class="welcome">欢迎您 </span></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" role="button" aria-haspopup="true"
+                                        aria-expanded="false">&nbsp;九州云腾<span
+                        class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li></li>
+                        <li role="separator" class="dropdown-footer" id="logins">
+                            <form action="" role="search" method="post">
+                                <input type="hidden" name="_csrf"
+                                       value="f1b38c9e-c8e6-4618-91c7-ce4e41aa944f"/>
+                                <button type="submit" class="fa fa-sign-out danger" id="log_out">退出</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div id="click" class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-pills nav-stacked" id="mainMenu">
+
+                <li role="presentation"><a
+                        href="" style="">企业管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href="enterprise_employee_form_three.html">职工信息</a>
+                        </li>
+
+                        <li role="presentation" class="active"><a
+                                href="">业绩报告</a>
+                        </li>
+                    </ol>
+                </li>
+
+                <li role="presentation"><a
+                        href="" style="">简历管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href="enterprise_resume_form.html">拖入简历</a>
+                        </li>
+                        <li role="presentation"><a
+                                href="enterprise_resume_center.html">简历中心</a>
+                        </li>
+                        <li role="presentation"><a
+                                href="enterprise_talent_center.html">人才中心</a>
+                        </li>
+
+                    </ol>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+        <ol class="breadcrumb">
+            <li><a href="">首页</a>
+            </li>
+            <li><a href="">企业管理</a>
+            </li>
+            <li class="active">业绩报告</li>
+        </ol>
+
+        <form id="formDto" class="form-horizontal"
+              action="" method="post">
+
+            <h4 class="page-header text-center"><strong>周星驰招聘报告</strong></h4>
+
+            <div id="report-download" class="alert alert-success" style="display: none">
+                2016-06-06至2016-08-08的招聘业绩报告已经生成&nbsp;<a href="" class="label label-default">下载</a>
+            </div>
+
+            <div class="alert alert-info">
+                该HR有可查看的历史招聘报告&nbsp;<a href="" class="label label-default">查看</a>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">时间段<em class="text-danger">*</em> </label>
+
+                <div class="col-sm-10">
+
+                    <input id="date_range" class="form-control" placeholder="请选择报告时间段" required="true">
+
+                    <p class="help-block">时间段</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <button type="button" id="submitBtn" class="btn btn-primary">预览报告</button>
+                    <a href="enterprise_hr_performance_report.html">返回</a>&nbsp; <span><em class="text-danger">*</em>
+					代表必填值</span>
+
+
+                </div>
+            </div>
+            <div>
+                <input type="hidden" name="_csrf" value="11a4d4d5-4627-4776-b541-198cf81cc294">
+            </div>
+        </form>
+
+        <div>
+            <hr/>
+            <p class="text-muted text-center">&copy; 2016 筛子网</p>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="reportModalLabel">业绩报告预览</h4>
+            </div>
+            <div class="modal-body">
+                <!--<div id="entModalBody"><img src="${contextPath}/static/images/sso/sso_pending.gif" alt="Loading"/></div>-->
+                <div class="table-responsive">
+                    <table class="table table-striped" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+
+                        <tr>
+
+                            <span><strong>周星驰</strong></span>
+
+                        </tr>
+
+                        <tr>
+                            <td colspan="4">
+                                <span class="text-primary">
+
+                                    HR | 男 | 50岁
+
+                                </span>
+                            </td>
+                            <td rowspan="6" align="center" width="20%">
+
+                                <img src="static/logo.png"/>
+
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>登录账号：</td>
+                            <td>zxc@idsmanager.com</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>报告时间段：</td>
+                            <td>2016-06-06至2016-08-08</td>
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <table class="table table-striped" width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+
+                        <tr>
+                            <th colspan="6">业绩统计</th>
+
+                        </tr>
+
+                        <tr>
+                            <td>下载简历数:</td>
+                            <td>100</td>
+                            <td>面试邀约数：</td>
+                            <td>30</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>入职人数：</td>
+                            <td>18</td>
+                            <td>入职率：</td>
+                            <td>60%</td>
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span id="modalMsg"></span>&nbsp;
+                <button type="button" class="btn btn-primary" id="reportModalSubmit">确认</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="static/moment.min.js"></script>
+<script src="static/jquery.daterangepicker.js"></script>
+
+<script>
+
+    $(function () {
+        var configObject = {
+            extraClass: 'date-range-picker19'
+        }
+        $('#date_range').dateRangePicker(configObject);
+
+        $('#submitBtn').click(function () {
+            $("#reportModal").modal("show");
+        });
+
+        $('#reportModalSubmit').click(function () {
+            console.log('hide');
+            $('#report-download').css('display', 'block');
+            $("#reportModal").modal('hide');
+        });
+    });
+
+</script>
+
+</body>
+</html>

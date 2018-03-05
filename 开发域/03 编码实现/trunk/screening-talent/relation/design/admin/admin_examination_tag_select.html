@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="X-CSRF-TOKEN" content="1d426c80-2e13-43c0-8795-9dba87d06487">
+    <link rel="shortcut icon" href="../static/favicon.ico">
+
+    <title>标签设置 | 后台</title>
+
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="../static/css/xsifter.css" rel="stylesheet"/>
+    <link href="../static/labelauty/css/index.css" rel="stylesheet"/>
+    <link href="../static/labelauty/css/labelauty.css" rel="stylesheet"/>
+
+    <script src="../static/jquery.min.js"></script>
+
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <style>
+
+        div#rMenu {
+            position: absolute;
+            visibility: hidden;
+            top: 0;
+            background-color: #555;
+            text-align: left;
+            padding: 2px;
+        }
+
+        div#rMenu ul li {
+            margin: 1px 0;
+            padding: 0 5px;
+            cursor: pointer;
+            list-style: none outside none;
+            background-color: #DFDFDF;
+        }
+
+        .navbar {
+            height: 56px;
+        }
+
+        .invite_register {
+            position: relative;
+            min-width: 50px;
+            height: 56px;
+            display: inline-block;
+            top: 8px;
+        }
+
+        .navbar .navbar-inner {
+            border: 0;
+            -webkit-border-radius: 0;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 0;
+            -moz-background-clip: padding;
+            border-radius: 0;
+            background-clip: padding-box;
+            margin: 0;
+            padding-left: 0;
+            padding-right: 0;
+            min-height: 55px;
+            position: relative;
+            background: #333;
+        }
+
+        #log_out {
+            width: 100%;
+            margin: 0px;
+            height: 45px;
+            text-align: left;
+            padding-left: 24%;
+            line-height: 45px;
+            border-bottom: 1px dotted #000;
+            color: #303030;
+            font-weight: bold;
+            font-size: 13px;
+            font-family: "Microsoft YaHei";
+            position: relative;
+            top: 5px;
+        }
+
+        #navbar .nav.navbar-nav.navbar-right li:nth-child(1) {
+            margin-right: 31px;
+            margin-top: -8px;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=""><img alt="Brand"
+                                                 src="../static/logo.png"> </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a id="adminPage" href=""
+                       class="invite_register">邀请注册</a></li>
+
+
+                <li><span class="welcome">欢迎您 </span></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" role="button" aria-haspopup="true"
+                                        aria-expanded="false">&nbsp;admin<span
+                        class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li></li>
+                        <li role="separator" class="dropdown-footer" id="logins">
+                            <form action="" role="search" method="post">
+                                <input type="hidden" name="_csrf"
+                                       value="f1b38c9e-c8e6-4618-91c7-ce4e41aa944f"/>
+                                <button type="submit" class="fa fa-sign-out danger" id="log_out">退出</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div id="click" class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-pills nav-stacked" id="mainMenu">
+
+                <li role="presentation"><a
+                        href="" style="">企业管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href="admin_employee_list.html">职工信息</a>
+                        </li>
+                    </ol>
+                </li>
+
+                <li role="presentation"><a
+                        href="" style="">简历管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href="admin_resume_drag_form.html">拖入简历</a>
+                        </li>
+
+                        <li role="presentation"><a
+                                href="admin_resume_center.html">简历中心</a>
+                        </li>
+                    </ol>
+                </li>
+
+                <li role="presentation"><a
+                        href="" style="">题库管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation" class="active"><a
+                                href="admin_tag_setting.html">标签设置</a>
+                        </li>
+                        <li role="presentation"><a
+                                href="admin_question_list.html">题目列表</a>
+                        </li>
+                    </ol>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+        <ol class="breadcrumb">
+            <li><a href="">首页</a>
+            </li>
+            <li><a href="">题型管理</a>
+            </li>
+            <li class="active">标签设置</li>
+        </ol>
+
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="admin_tag_setting.html">标签设置</a>
+            </li>
+            <li role="presentation" class="active"><a href="javaScript:void(0);">试卷标签选择</a>
+            </li>
+        </ul>
+
+        <br>
+
+        <form id="formDto" class="form-horizontal" action="" method="post"
+              enctype="multipart/form-data">
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">综合标签<em class="text-danger">*</em> </label>
+
+                <div class="col-sm-10">
+
+                    <div class="rdo">
+                        <!--综合题型-->
+                        <input type="radio" name="rdo" class="rdolist" checked="checked"/>
+                        <label class="rdobox">
+                            <span class="check-image"></span>
+                            <span class="radiobox-content">综合题型</span>
+                        </label>
+                        <!--专业题型-->
+                        <input type="radio" name="rdo" class="rdolist"/>
+                        <label class="rdobox">
+                            <span class="check-image"></span>
+                            <span class="radiobox-content">专业题型</span>
+                        </label>
+                        <!--难度-->
+                        <input type="radio" name="rdo" class="rdolist"/>
+                        <label class="rdobox">
+                            <span class="check-image"></span>
+                            <span class="radiobox-content">难度</span>
+                        </label>
+                    </div>
+
+                    <p class="help-block">必选</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">专业标签<em class="text-danger">*</em> </label>
+
+                <div class="col-sm-10">
+
+                    <div class="rdo">
+                        <!--综合题型-->
+                        <input type="radio" name="pro" class="rdolist"/>
+                        <label class="rdobox">
+                            <span class="check-image"></span>
+                            <span class="radiobox-content">综合题型</span>
+                        </label>
+                        <!--专业题型-->
+                        <input type="radio" name="pro" class="rdolist" checked="checked"/>
+                        <label class="rdobox">
+                            <span class="check-image"></span>
+                            <span class="radiobox-content">专业题型</span>
+                        </label>
+                        <!--难度-->
+                        <input type="radio" name="pro" class="rdolist"/>
+                        <label class="rdobox">
+                            <span class="check-image"></span>
+                            <span class="radiobox-content">难度</span>
+                        </label>
+                    </div>
+
+                    <p class="help-block">必选</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">难度<em class="text-danger">*</em> </label>
+
+                <div class="col-sm-10">
+
+                    <div class="rdo">
+                        <!--综合题型-->
+                        <input type="radio" name="dif" class="rdolist"/>
+                        <label class="rdobox">
+                            <span class="check-image"></span>
+                            <span class="radiobox-content">综合题型</span>
+                        </label>
+                        <!--专业题型-->
+                        <input type="radio" name="dif" class="rdolist"/>
+                        <label class="rdobox">
+                            <span class="check-image"></span>
+                            <span class="radiobox-content">专业题型</span>
+                        </label>
+                        <!--难度-->
+                        <input type="radio" name="dif" class="rdolist" checked="checked"/>
+                        <label class="rdobox">
+                            <span class="check-image"></span>
+                            <span class="radiobox-content">难度</span>
+                        </label>
+                    </div>
+
+                    <p class="help-block">必选</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">保存</button>
+                </div>
+            </div>
+            <div>
+                <input type="hidden" name="_csrf" value="f1b38c9e-c8e6-4618-91c7-ce4e41aa944f">
+            </div>
+        </form>
+
+
+        <div>
+            <hr/>
+            <p class="text-muted text-center">&copy; 2016 筛子网</p>
+        </div>
+    </div>
+
+</div>
+
+<script src="../static/labelauty/js/labelauty.js"></script>
+<script>
+    $(function () {
+        //参数{input类名，选择类型(单选or多选)}
+        $(".rdolist").labelauty("rdolist", "rdo");
+        //$(".chklist").labelauty("chklist", "check");
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Microsoft Yahei";
+}
+
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+    color: #fff;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+    color: #333;
+    text-shadow: none; /* Prevent inheritence from `body` */
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+    height: 100%;
+    background:#2a2f3d url("../img/login/login-bg.png");
+    background-size: cover;
+    color: #ffffff;
+}
+body {
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+    display: table;
+    width: 100%;
+    height: 100%; /* For at least Firefox */
+    min-height: 100%;
+   /* -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+    box-shadow: inset 0 0 100px rgba(0,0,0,.5);*/
+}
+.site-wrapper-inner {
+    display: table-cell;
+    vertical-align: top;
+}
+.cover-container {
+    margin-right: auto;
+    margin-left: auto;
+}
+.site-wrapper .site-wrapper-inner .cover-container{
+    margin-top: 10%;
+    color: #9b9b9d;
+}
+.site-wrapper .site-wrapper-inner .cover-container .form-login{
+    background-color: #ffd12f;
+    padding: 35px;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.site-wrapper .site-wrapper-inner .cover-container .form-login{
+    margin-top: 30px;
+}
+.site-wrapper .site-wrapper-inner .cover-container .form-login .form-group .text-center{
+    color: #2a2f3d;
+    font-size: 16px;
+   /* text-shadow:0px 0px 10px white ;*/
+}
+.site-wrapper .site-wrapper-inner .cover-container .form-login .form-group .col-sm-12 input.form-control{
+   position: relative;
+    padding-left: 50px;
+    height: 40px;
+    text-shadow:0px 0px 10px white ;
+}
+.site-wrapper .site-wrapper-inner .cover-container .form-login .form-group:nth-child(4){
+    text-shadow:0px 0px 10px white ;
+}
+.site-wrapper .site-wrapper-inner .cover-container .form-login .form-group:nth-child(5){
+    text-shadow:0px 0px 10px white ;
+}
+.site-wrapper .site-wrapper-inner .cover-container .form-login .form-group .col-sm-12 i{
+    position: absolute;
+    left: 25px;
+    top: 10px;
+    text-shadow:0px 0px 10px white ;
+    border-right: 1px solid #ccc;
+    padding-right: 15px;
+    font-size: 17px;
+}
+.site-wrapper .site-wrapper-inner .cover-container .form-login .form-group .col-sm-5{
+}
+.site-wrapper .site-wrapper-inner .cover-container .form-login .form-group .col-sm-5 label{
+    margin: 0px;
+    padding: 0px;
+    margin-left: 0px;
+    float: left;;
+    font-weight:0;
+}
+.site-wrapper .site-wrapper-inner .cover-container .form-login .form-group .col-sm-12:last-child .btn{
+    background-color: #2a2f3d;
+    border: 1px solid #2a2f3d;
+    color: white;
+    height: 35px;
+}
+/* Padding for spacing */
+.inner {
+    padding: 30px;
+}
+
+@media (min-width: 1200px) {
+    .site-wrapper .site-wrapper-inner .cover-container img{
+        width: 100%;
+    }
+}
+
+label{
+    font-weight:0;
+}

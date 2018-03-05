@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//src/main/java=utf-8
+encoding//src/main/resources=UTF-8
+encoding//src/main/webapp/WEB-INF/view/commons/taglib-header.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/view/company/company_agree.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/view/company/success.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/view/home.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/view/tsca/tsca.jsp=UTF-8
+encoding//src/main/webapp/test.jsp=UTF-8
+encoding//src/test/java=utf-8
+encoding//src/test/resources=UTF-8
+encoding/<project>=UTF-8

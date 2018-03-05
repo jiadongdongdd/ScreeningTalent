@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="X-CSRF-TOKEN" content="1d426c80-2e13-43c0-8795-9dba87d06487">
+    <link rel="shortcut icon" href="../static/favicon.ico">
+
+    <title>选择标签 | 前台</title>
+
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="../static/css/xsifter.css" rel="stylesheet"/>
+    <link href="../static/jq22/css/jq22.css" rel="stylesheet"/>
+    <link href="../static/zyzn_1.css" rel="stylesheet" type="text/css"/>
+    <link href="../static/labelauty/css/index.css" rel="stylesheet"/>
+    <link href="../static/labelauty/css/labelauty.css" rel="stylesheet"/>
+
+    <script src="../static/jquery.min.js"></script>
+
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <style>
+        .navbar {
+            height: 56px;
+        }
+
+        .invite_register {
+            position: relative;
+            min-width: 50px;
+            height: 56px;
+            display: inline-block;
+            top: 8px;
+        }
+
+        .navbar .navbar-inner {
+            border: 0;
+            -webkit-border-radius: 0;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 0;
+            -moz-background-clip: padding;
+            border-radius: 0;
+            background-clip: padding-box;
+            margin: 0;
+            padding-left: 0;
+            padding-right: 0;
+            min-height: 55px;
+            position: relative;
+            background: #333;
+        }
+
+        #log_out {
+            width: 100%;
+            margin: 0px;
+            height: 45px;
+            text-align: left;
+            padding-left: 24%;
+            line-height: 45px;
+            border-bottom: 1px dotted #000;
+            color: #303030;
+            font-weight: bold;
+            font-size: 13px;
+            font-family: "Microsoft YaHei";
+            position: relative;
+            top: 5px;
+        }
+
+        #navbar .nav.navbar-nav.navbar-right li:nth-child(1) {
+            margin-right: 31px;
+            margin-top: -8px;
+        }
+
+        .btn-circle.btn-lg {
+            width: 50px;
+            height: 50px;
+            padding: 10px 16px;
+            border-radius: 25px;
+            font-size: 18px;
+            line-height: 1.33;
+        }
+
+        .btn-circle {
+            width: 30px;
+            height: 30px;
+            padding: 6px 0;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.428571429;
+        }
+
+        .btn-primary-circle {
+            background-color: #1ab394;
+            border-color: #1ab394;
+            color: #FFFFFF;
+        }
+
+        .tags-selected span {
+            display: inline-block;
+            vertical-align: middle;
+            background-color: #5297cc;
+            border-radius: 15px;
+            padding: 0 14px 2px;
+            color: #fff;
+            margin: 2px 5px 2px 0;
+            line-height: 26px;
+            white-space: nowrap;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=""><img alt="Brand"
+                                                 src="../static/logo.png"> </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a id="adminPage" href=""
+                       class="invite_register">邀请注册</a></li>
+
+                <li><span class="welcome">欢迎您 </span></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" role="button" aria-haspopup="true"
+                                        aria-expanded="false">&nbsp;九州云腾<span
+                        class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li></li>
+                        <li role="separator" class="dropdown-footer" id="logins">
+                            <form action="" role="search" method="post">
+                                <input type="hidden" name="_csrf"
+                                       value="f1b38c9e-c8e6-4618-91c7-ce4e41aa944f"/>
+                                <button type="submit" class="fa fa-sign-out danger" id="log_out">退出</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div id="click" class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-pills nav-stacked" id="mainMenu">
+
+                <li role="presentation"><a
+                        href="" style="">企业管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation" class="active"><a
+                                href="enterprise_employee_list.html">职工信息</a>
+                        </li>
+                    </ol>
+                </li>
+
+                <li role="presentation"><a
+                        href="" style="">简历管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href="enterprise_resume_drag_form.html">拖入简历</a>
+                        </li>
+
+                        <li role="presentation"><a
+                                href="enterprise_resume_center.html">简历中心</a>
+                        </li>
+                    </ol>
+                </li>
+
+                <li role="presentation"><a
+                        href="" style="">题库管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href="enterprise_exam_history.html">试卷记录</a>
+                        </li>
+                        <li role="presentation"><a
+                                href="enterprise_interview_result.html">面试结果</a>
+                        </li>
+                    </ol>
+                </li>
+
+                <li role="presentation"><a
+                        href="" style="">招聘管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href="enterprise_hr_performance_report.html">业绩报告</a>
+                        </li>
+                    </ol>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+        <ol class="breadcrumb">
+            <li><a href="">首页</a>
+            </li>
+            <li><a href="">企业管理</a>
+            </li>
+            <li><a href="">职工信息</a>
+            </li>
+            <li class="active">职工信息录入</li>
+        </ol>
+
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="">试题设置</a>
+            </li>
+            <li role="presentation"><a href="javaScript:void(0)">试题预览</a>
+            </li>
+        </ul>
+
+        <br>
+
+        <form id="formDto" class="form-horizontal"
+              action="" method="post">
+
+            <div>
+
+
+                <div class="pull-right"><input type="checkbox" value="true"/>&nbsp;生成试卷</div>
+
+
+                <h4 class="page-header text-primary">综合标签</h4>
+
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    已选基础标签：
+                    <div class="plus-tag tagbtn clearfix" id="myTags" style="display: block;"></div>
+
+
+                    <div id="mycard-plus">
+                        <div class="default-tag tagbtn">
+                            生成的基础标签：
+                            <div class="clearfix">
+                                <a value="age" title="20~25" href="javascript:void(0);"><span>20~25</span><em></em></a>
+                                <a value="gender" title="男" href="javascript:void(0);"><span>男</span><em></em></a>
+                                <a value="nation" title="汉族" href="javascript:void(0);"><span>汉族</span><em></em></a>
+                                <a value="education" title="硕士"
+                                   href="javascript:void(0);"><span>硕士</span><em></em></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-12">
+
+
+                    <div id="generalTagDiv">
+                        选择的综合标签<em class="text-danger">*</em>：
+                        <em>最多选择 <strong>5</strong>项</em>
+
+                        <button class="btn btn-primary-circle btn-circle btn-sm" id="general-tag" type="button"><i
+                                class="glyphicon glyphicon-plus"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    题型<em class="text-danger">*</em>：
+                    <input id="radio" title="单选题" type="checkbox" value="radio" class="type"/>单选&nbsp;
+                    <input id="multi" title="多选题" type="checkbox" value="multi" class="type"/>多选&nbsp;
+                    <input id="short" title="简答题" type="checkbox" value="short" class="type"/>简答&nbsp;
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-sm-12">
+
+                    <div id="questionsAmount">
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-sm-12">
+
+                    <div class="rdo">
+                        难度<em class="text-danger">*</em>:
+                        <!--难-->
+                        <input type="radio" name="rdo" class="rdolist"/>
+                        <label class="rdobox">
+                            <span class="check-image"></span>
+                            <span class="radiobox-content">难</span>
+                        </label>
+                        <!--中-->
+                        <input type="radio" name="rdo" class="rdolist" checked="checked"/>
+                        <label class="rdobox">
+                            <span class="check-image"></span>
+                            <span class="radiobox-content">中</span>
+                        </label>
+                        <!--易-->
+                        <input type="radio" name="rdo" class="rdolist"/>
+                        <label class="rdobox">
+                            <span class="check-image"></span>
+                            <span class="radiobox-content">易</span>
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <a href="enterprise_generate_exam_two.html" class="btn btn-primary">下一步</a>
+                    <a href="enterprise_employee_form_three.html">返回</a>
+                </div>
+            </div>
+
+        </form>
+
+
+        <div>
+            <hr/>
+            <p class="text-muted text-center">&copy; 2016 筛子网</p>
+        </div>
+
+
+    </div>
+
+</div>
+
+<div class="aui_state_box" style="display: none">
+    <div class="aui_state_box_bg"></div>
+    <div class="aui_alert_zn aui_outer" id="drag_con">
+        <table class="aui_border" style="border:2px solid #8a9499;">
+            <tbody>
+            <tr>
+                <td class="aui_w"></td>
+                <td class="aui_c">
+                    <div class="aui_inner">
+                        <table class="aui_dialog">
+                            <tbody>
+                            <tr>
+                                <td class="aui_header" colspan="2">
+                                    <div class="aui_titleBar">
+                                        <div class="aui_title" style="cursor: move;">选择标签</div>
+                                        <a href="javascript:;" class="aui_close" onclick="Close()">×</a></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="aui_icon" style="display: none;">
+                                    <div class="aui_iconBg"
+                                         style="background: transparent none repeat scroll 0% 0%;"></div>
+                                </td>
+                                <td class="aui_main" style="width: auto; height: auto;">
+                                    <div class="aui_content" style="padding: 0px;">
+                                        <div style="width: 900px; position:relative ">
+                                            <div class="data-result aui-titlespan"><em>最多选择 <strong>5</strong>
+                                                项</em></div>
+                                            <div class="data-tabs">
+                                                <ul>
+                                                    <li onclick="removenode(this,0)" data-selector="tab-all"
+                                                        class="active"><a
+                                                            href="javascript:;"><span>综合题型</span><em></em></a></li>
+                                                </ul>
+                                            </div>
+                                            <!--一级标签-->
+                                            <div class="data-container data-container-0">
+                                                <div class="view-all">
+                                                    <div class="cate-list-normal">
+                                                        <div class="cate-list-title"><em>综合题型</em></div>
+                                                        <ul class="clearfix" id="znhy-table">
+                                                            <li><a href="javascript:;" data-code="1"
+                                                                   data-name="通用类" class="d-cate"
+                                                                   onclick="show_second_node(this)">通用类</a>
+                                                            </li>
+                                                            <li><a href="javascript:;" data-code="2"
+                                                                   data-name="差异类" class="d-cate"
+                                                                   onclick="show_second_node(this)">差异类</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--职能选择-大类行业-->
+                                            <div class="data-container data-container-1">
+                                                <div class="view-cate">
+                                                    <div class="cate-list-subs">
+                                                        <ul class="clearfix" id="znhy"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--职能选择-职能-->
+                                            <div class="data-container data-container-2">
+                                                <div class="view-tree">
+                                                    <div class="tree-container">
+                                                        <div class="tree-list">
+                                                            <ul id="data-hy-d3j"></ul>
+                                                        </div>
+                                                        <div class="tree-item-list" style="height: 300px;">
+                                                            <div class="view-tree-items">
+                                                                <div class="item-list">
+                                                                    <ul id="data-hyzn-d3j" class="clearfix"></ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="data-error" style="display: none;">最多只能选择 5 项</div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="aui_footer" colspan="2">
+                                    <div class="aui_buttons">
+                                        <button class="aui-btn aui-btn-primary" type="button"
+                                                onclick="svae_znitem()">确定
+                                        </button>
+                                        <button class="aui-btn aui-btn-light" type="button" onclick="Close()">取消
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+                <td class="aui_e"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="../static/jq22/js/jq22.js"></script>
+<script src="../static/labelauty/js/labelauty.js"></script>
+
+<script>
+
+    //确定选择
+    function svae_znitem() {
+
+        $('#generalTagDiv a').remove();
+        if ($('.svae_box').length > 0) {
+            $('.svae_box').each(function () {
+                var name = $(this).data("name");
+                var code = $(this).data("code");
+                $('#general-tag').before('<a class="tags-selected" value="' + code + '" title="' + name + '" href="javascript:void(0);"><span>' + name + '</span></a>');
+            })
+        }
+
+        $('.aui_state_box').hide();
+
+    }
+
+    function Close() {
+        $('.aui_state_box').hide();
+    }
+
+    function removenode(lithis, typeid) {
+        $(lithis).nextAll('li').remove();
+        $('.data-container-' + typeid).nextAll('.data-container').hide();
+        $('.data-container-' + typeid).show();
+    }
+
+    function show_second_node(conthis) {
+        var pid = $(conthis).data('code');
+        var pname = $(conthis).data('name');
+        $(conthis).parents('.data-container').hide();
+        show_second_tags(pid, pname);
+    }
+
+    //展示二级标签
+    function show_second_tags(pid, pname) {
+
+        //根据一级标签id查找子节点
+        var secondTags = [{id: 17, pId: 1, name: "语言表达能力"},
+            {id: 18, pId: 1, name: "逻辑思维能力"},
+            {id: 19, pId: 1, name: "观察能力"}];
+
+        $('.data-container-1').show();
+        //添加标题
+        $('.data-tabs ul').append('<li onclick="removenode(this,1)" data-code="' + pid + '" class="active"><a href="javascript:;"><span>' + pname + '</span><em></em></a></li>');
+
+        var hyznstrVar = "";
+
+        for (var j in secondTags) {
+            hyznstrVar += "<li><a title=\"" + secondTags[j].name + "\" href=\"javascript:;\" data-code=\"" + secondTags[j].id + "\" data-name=\"" + secondTags[j].name + "\" data-ditem=\"" + secondTags[j].id + "\" class=\"d-item\" onclick=\"ditem_select(this)\">" + secondTags[j].name + "<\/a><\/li>";
+        }
+        $('#znhy').children().remove();
+        $('#znhy').html(hyznstrVar);
+        if ($('.data-result span').length > 0) {
+            $('.data-result span').each(function (index) {
+
+                $('#znhy a[data-ditem=' + $(this).data("code") + ']').addClass('d-item-active');
+            });
+        }
+
+
+    }
+
+    function ditem_select(conthis) {
+        if ($(conthis).attr("class").indexOf("d-item-active") > 0) {
+            $(conthis).removeClass("d-item-active");
+            $('.data-result span[data-code=' + $(conthis).data("code") + ']').remove();
+        } else {
+            if ($('.data-result span').length > 4) {
+                $('.data-error').slideDown();
+                setTimeout("$('.data-error').hide()", 1000);
+                return false;
+            } else {
+                $('.data-result').append("<span class=\"svae_box aui-titlespan\" data-code=\"" + $(conthis).data("code") + "\"  data-name=\"" + $(conthis).data("name") + "\" onclick=\"removespan(this)\">" + $(conthis).data("name") + "<i>×<\/i><\/span>");
+                $(conthis).addClass('d-item-active');
+            }
+        }
+    }
+
+
+    function removespan(spanthis) {
+        $('#data-hyzn-d3j a[data-ditem=' + $(spanthis).data("code") + ']').removeClass('d-item-active');
+        $('#znhy a[data-ditem=' + $(spanthis).data("code") + ']').removeClass('d-item-active');
+        $(spanthis).remove();
+    }
+
+    $(function () {
+
+        $('button#general-tag').click(function () {
+            $('.aui_state_box').show();
+        });
+
+
+        $('.type:checked').each(function () {
+            var title = $(this).attr('title');
+            var id = $(this).attr('id');
+            var input = '<input class="form-control" type="text" name="' + id + '_amount" placeholder="' + title + '数量" / > ';
+            $('#questionsAmount').append(input);
+        });
+
+
+        $('.type').change(function () {
+            if ($(this).is(":checked")) {
+                var title = $(this).attr('title');
+                var id = $(this).attr('id');
+                var input = '<input class="form-control" type="text" name="' + id + '_amount" placeholder="' + title + '数量" / > ';
+                $('#questionsAmount').append(input).append('<br>');
+            } else {
+                var id = $(this).attr('id');
+                $('input[name="' + id + '_amount"]').remove();
+                $('#questionsAmount').find("br:last").remove();
+            }
+        });
+
+        $(".rdolist").labelauty("rdolist", "rdo");
+
+    });
+
+</script>
+
+
+</body>
+</html>

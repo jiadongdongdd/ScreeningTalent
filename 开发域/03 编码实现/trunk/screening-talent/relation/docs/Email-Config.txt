@@ -1,0 +1,16 @@
+
+
+
+
+IP Address
+104.130.122.1
+SMTP Hostname
+smtp.mailgun.org
+Default SMTP Login
+postmaster@sandbox060887615d724fea8706a61aa976fb78.mailgun.org
+Default Password
+e27924ef19f8240fed80fa975ecbcb6c  Manage SMTP credentials
+API Base URL
+https://api.mailgun.net/v3/sandbox060887615d724fea8706a61aa976fb78.mailgun.org
+API Key
+key-b44d71e668796ee52818b1135ba30b59

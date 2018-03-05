@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="X-CSRF-TOKEN" content="1d426c80-2e13-43c0-8795-9dba87d06487">
+    <link rel="shortcut icon" href="static/favicon.ico">
+
+    <title>试题预览 | 前台</title>
+
+    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="static/css/xsifter.css" rel="stylesheet"/>
+    <link href="static/summernote/summernote.css" rel="stylesheet">
+
+    <script src="static/jquery.min.js"></script>
+
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <style>
+        .navbar {
+            height: 56px;
+        }
+
+        .invite_register {
+            position: relative;
+            min-width: 50px;
+            height: 56px;
+            display: inline-block;
+            top: 8px;
+        }
+
+        .navbar .navbar-inner {
+            border: 0;
+            -webkit-border-radius: 0;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 0;
+            -moz-background-clip: padding;
+            border-radius: 0;
+            background-clip: padding-box;
+            margin: 0;
+            padding-left: 0;
+            padding-right: 0;
+            min-height: 55px;
+            position: relative;
+            background: #333;
+        }
+
+        #log_out {
+            width: 100%;
+            margin: 0px;
+            height: 45px;
+            text-align: left;
+            padding-left: 24%;
+            line-height: 45px;
+            border-bottom: 1px dotted #000;
+            color: #303030;
+            font-weight: bold;
+            font-size: 13px;
+            font-family: "Microsoft YaHei";
+            position: relative;
+            top: 5px;
+        }
+
+        #navbar .nav.navbar-nav.navbar-right li:nth-child(1) {
+            margin-right: 31px;
+            margin-top: -8px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=""><img alt="Brand"
+                                                 src="static/logo.png"> </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a id="adminPage" href=""
+                       class="invite_register">邀请注册</a></li>
+
+
+                <li><span class="welcome">欢迎您 </span></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" role="button" aria-haspopup="true"
+                                        aria-expanded="false">&nbsp;九州云腾<span
+                        class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li></li>
+                        <li role="separator" class="dropdown-footer" id="logins">
+                            <form action="" role="search" method="post">
+                                <input type="hidden" name="_csrf"
+                                       value="f1b38c9e-c8e6-4618-91c7-ce4e41aa944f"/>
+                                <button type="submit" class="fa fa-sign-out danger" id="log_out">退出</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div id="click" class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-pills nav-stacked" id="mainMenu">
+
+                <li role="presentation"><a
+                        href="" style="">企业管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation" class="active"><a
+                                href="enterprise_employee_form_three.html">职工信息</a>
+                        </li>
+                        <li role="presentation"><a
+                                href="enterprise_hr_performance_report.html">业绩报告</a>
+                        </li>
+                    </ol>
+                </li>
+
+                <li role="presentation"><a
+                        href="" style="">简历管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href="enterprise_resume_form.html">拖入简历</a>
+                        </li>
+                        <li role="presentation"><a
+                                href="enterprise_resume_center.html">简历中心</a>
+                        </li>
+                        <li role="presentation"><a
+                                href="enterprise_talent_center.html">人才中心</a>
+                        </li>
+
+                    </ol>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+        <ol class="breadcrumb">
+            <li><a href="">首页</a>
+            </li>
+            <li><a href="">企业管理</a>
+            </li>
+            <li><a href="">职工信息</a>
+            </li>
+            <li class="active">职工信息录入</li>
+        </ol>
+
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="enterprise_generate_exam_one.html">基础标签</a>
+            </li>
+            <li role="presentation"><a href="enterprise_generate_exam_two.html">试题设置</a>
+            </li>
+            <li role="presentation" class="active"><a href="javaScript:void(0)">试题预览</a>
+            </li>
+            <li role="presentation"><a href="javaScript:void(0)">考卷</a>
+            </li>
+        </ul>
+
+        <br>
+
+        <form id="formDto" class="form-horizontal"
+              action="" method="post">
+
+            <div class="text-center">
+                <h3>考试题目
+                    <button id="another_exam" type="button" class="btn btn-primary">换一批</button>
+                </h3>
+
+            </div>
+
+
+            <br>
+
+            <h4 class="page-header text-primary">1.单选题</h4>
+
+
+            <div class="form-group">
+                <div class="col-sm-12"><strong>1.java中ArrayList的默认构造函数，初始容量是多少?</strong></div>
+                <br>
+                <br>
+
+                <div class="col-sm-12">
+                    <strong>
+                        A.10&nbsp;
+                        B.20&nbsp;
+                        C.16&nbsp;
+                        D.15&nbsp;
+                    </strong>
+
+                </div>
+
+                <br>
+                <br>
+
+                <div class="col-sm-12 answer hidden">
+                    <strong>
+                        答案：A
+                    </strong>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12"><strong>2.java中ArrayList的默认构造函数，初始容量是多少?</strong></div>
+                <br>
+                <br>
+
+                <div class="col-sm-12">
+                    <strong>
+                        A.10&nbsp;
+                        B.20&nbsp;
+                        C.16&nbsp;
+                        D.15&nbsp;
+                    </strong>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="col-sm-12 answer hidden">
+                    <strong>
+                        答案：A
+                    </strong>
+                </div>
+
+            </div>
+
+            <h4 class="page-header text-primary">2.多选题</h4>
+
+            <div class="form-group">
+                <div class="col-sm-12"><strong>1.java中ArrayList的默认构造函数，初始容量是多少?</strong></div>
+                <br>
+                <br>
+
+                <div class="col-sm-12">
+                    <strong>
+                        A.10&nbsp;
+                        B.20&nbsp;
+                        C.16&nbsp;
+                        D.15&nbsp;
+                    </strong>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="col-sm-12 answer hidden">
+                    <strong>答案：ABC</strong>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12"><strong>2.java中ArrayList的默认构造函数，初始容量是多少?</strong></div>
+                <br>
+                <br>
+
+                <div class="col-sm-12">
+                    <strong>
+                        A.10&nbsp;
+                        B.20&nbsp;
+                        C.16&nbsp;
+                        D.15&nbsp;
+                    </strong>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="col-sm-12 answer hidden">
+                    <strong>答案：AD</strong>
+                </div>
+
+            </div>
+
+            <h4 class="page-header text-primary">3.问答题</h4>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <div class="non-standard-question">
+
+
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="col-sm-12 answer hidden">
+                    <div class="non-standard-answer">
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-10">
+                    <a href="enterprise_generate_exam_four.html" class="btn btn-primary">生成试题</a>
+                    <a href="enterprise_generate_exam_two.html" class="btn btn-success">上一步</a>
+                </div>
+            </div>
+            <div>
+                <input type="hidden" name="_csrf" value="11a4d4d5-4627-4776-b541-198cf81cc294">
+            </div>
+        </form>
+
+
+        <div>
+            <hr/>
+            <p class="text-muted text-center">&copy; 2016 筛子网</p>
+        </div>
+
+
+    </div>
+
+</div>
+
+<script src="static/summernote/summernote.js"></script>
+<script src="static/summernote/lang/summernote-zh-CN.js"></script>
+
+<script>
+
+    $(function () {
+
+        $('div.non-standard-question').summernote({
+            lang: 'zh-CN',
+            height: 200,
+            minHeight: null,
+            maxHeight: null,
+            focus: true
+        });
+
+        var question = '<b>1.java中ArrayList的默认构造函数，初始容量是多少?</b>';
+
+        $('.non-standard-question').summernote('code', question);
+
+        $('.non-standard-question').summernote('destroy');
+
+        $('div.non-standard-answer').summernote({
+            lang: 'zh-CN',
+            height: 200,
+            minHeight: null,
+            maxHeight: null,
+            focus: true
+        });
+
+        var answer = '<b>答案：10</b>';
+
+        $('.non-standard-answer').summernote('code', answer);
+
+        $('.non-standard-answer').summernote('destroy');
+
+        $('button#show_answer').click(function () {
+            $('.answer').removeClass('hidden');
+        });
+
+    });
+
+</script>
+
+</body>
+</html>

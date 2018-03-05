@@ -1,0 +1,153 @@
+筛子二期数据库设计
+
+//标签
+Tag
+
+String uuid;//标签UUID
+String id;//标签ID
+String pId;//父标签id
+String name;//标签名称
+boolean open;//展开
+boolean noR;//初始化
+
+//试题
+ExamQuestion
+
+String uuid;
+String examQuestionNum;//试题编号
+String title;//题目
+QuestionType type;//试题类型
+List<String> options;//选项
+String answer;
+List<String> tags;//标签
+
+int useTimes;//被使用次数
+int correctTimes;//正确次数
+int correctRate;//正确率
+int satisfaction;//满意度
+
+//试题类型
+Enum QuestionType
+
+SINGLE_CHOICE("单选题"),
+MULTIPLE_CHOICE("多选题"),
+SHORT_ANSWER("简答题");
+
+//试卷设置
+GeneralExaminationSetting
+
+String uuid;
+String memberUuid;//关联的面试员工
+
+List<String> differenceTags;//差异性标签
+List<String> selectedDifferenceTags;//选择的差异性标签
+List<String> generalTags;//综合标签
+Set<QuestionType> generalTypes;//综合试卷题型
+List<String> generalQuestionNum;//综合试卷各题型数量
+boolean generatedGeneralExam;//综合试卷生成试卷
+String generalDifficultyDegree;//综合试卷难度
+
+Set<String> professionalTags;//专业标签
+List<String> professionalQuestionNum;//各题型数量
+boolean generatedProfessionalExam;//生成试卷
+String professionalDifficultyDegree;//难度
+
+
+//试卷
+generalExamination
+
+String uuid;
+String examinationNum;//试卷号
+int generalQuestionTotalNum;//综合试卷试题总数
+List<String> generalQuestions;//综合试卷试题
+
+int professionalQuestionTotalNum;//专业试卷试题总数
+List<String> professionalQuestions;//专业试卷试题
+
+String settingUuid;//关联设置
+String memberUuid;//关联的职工
+
+
+
+//试卷结果
+ExaminationResult
+
+String uuid;
+String memberUuid;//关联的职工
+String examinationUuid;//试卷Uuid
+Map<String,Object> generalAnswers;//综合答案
+Map<String,Object> professionalAnswers;//专业答案
+String opinion;//评价
+String interviewer;//面试官
+int score;//分数
+
+//简历基本信息
+
+ResumeInformation
+
+String resumeUuid;//简历关联UUID
+
+String name;//姓名
+GenderStatus gender;//性别
+String idNumber;//身份证号
+String mobile;//手机号
+String email;//邮箱
+Degree degree;// 学历
+String currentResidence;//现居住地
+String registeredResidence;//户口所在地
+String resumeSource;//简历来源
+String originalId;//原始ID
+String position;//申请职位
+List<String> formerEmployers;//前雇主名称 和 起止时间
+
+String creator;//创建人
+
+ResumeStatus status;//简历状态
+Date invitationTime;//邀约时间
+Date interviewTime;//面试时间
+
+//简历状态
+Enum ResumeStatus
+NO_INVITE("未邀约"),
+INVITE_FAILURE("邀约失败"),
+INVITE_SUCCESS("待面试"),
+NON_ENTRY("未入职"),
+ENTRY("已入职");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

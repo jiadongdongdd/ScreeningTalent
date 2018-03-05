@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/WEB-INF/view/commons">
+
+
+    <!--main decorator-->
+    <decorator name="main" page="decorator-main.jsp">
+        <pattern>/admin/*</pattern>
+    </decorator>
+
+    <!--main decorator-->
+    <decorator name="enterpriseAdmin" page="decorator-admin-main.jsp">
+        <pattern>/enterpriseAdmin/*</pattern>
+    </decorator>
+
+    <!--main decorator-->
+    <decorator name="enterprise" page="decorator-enterprise-main.jsp">
+        <pattern>/enterprise/*</pattern>
+    </decorator>
+    <excludes>
+        <pattern>/login*</pattern>
+        <pattern>/public/*</pattern>
+        <pattern>/admin/question/load/first_level_tag</pattern>
+        <pattern>/enterprise/exam/load_general_tag</pattern>
+        <pattern>/enterprise/exam/load_professional_tag</pattern>
+    </excludes>
+
+</decorators>

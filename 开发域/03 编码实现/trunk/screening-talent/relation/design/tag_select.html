@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="X-CSRF-TOKEN" content="1d426c80-2e13-43c0-8795-9dba87d06487">
+    <link rel="shortcut icon" href="static/favicon.ico">
+
+    <title>题目录入 | 后台</title>
+
+    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="static/css/xsifter.css" rel="stylesheet"/>
+    <link href="static/zyzn_1.css" rel="stylesheet" type="text/css"/>
+
+    <script src="static/jquery.min.js"></script>
+
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <style>
+        .navbar {
+            height: 56px;
+        }
+
+        .invite_register {
+            position: relative;
+            min-width: 50px;
+            height: 56px;
+            display: inline-block;
+            top: 8px;
+        }
+
+        .navbar .navbar-inner {
+            border: 0;
+            -webkit-border-radius: 0;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 0;
+            -moz-background-clip: padding;
+            border-radius: 0;
+            background-clip: padding-box;
+            margin: 0;
+            padding-left: 0;
+            padding-right: 0;
+            min-height: 55px;
+            position: relative;
+            background: #333;
+        }
+
+        #log_out {
+            width: 100%;
+            margin: 0px;
+            height: 45px;
+            text-align: left;
+            padding-left: 24%;
+            line-height: 45px;
+            border-bottom: 1px dotted #000;
+            color: #303030;
+            font-weight: bold;
+            font-size: 13px;
+            font-family: "Microsoft YaHei";
+            position: relative;
+            top: 5px;
+        }
+
+        #navbar .nav.navbar-nav.navbar-right li:nth-child(1) {
+            margin-right: 31px;
+            margin-top: -8px;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/xsifter/"><img alt="Brand"
+                                                          src="static/logo.png"> </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a id="adminPage" href=""
+                       class="invite_register">邀请注册</a></li>
+
+
+                <li><span class="welcome">欢迎您 </span></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" role="button" aria-haspopup="true"
+                                        aria-expanded="false">&nbsp;admin<span
+                        class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li></li>
+                        <li role="separator" class="dropdown-footer" id="logins">
+                            <form action="" role="search" method="post">
+                                <input type="hidden" name="_csrf"
+                                       value="f1b38c9e-c8e6-4618-91c7-ce4e41aa944f"/>
+                                <button type="submit" class="fa fa-sign-out danger" id="log_out">退出</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div id="click" class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-pills nav-stacked" id="mainMenu">
+
+                <li role="presentation"><a
+                        href="" style="">企业管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href=""> 待审核企业</a>
+                        </li>
+                    </ol>
+                </li>
+
+                <li role="presentation"><a
+                        href="" style="">题型管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href="admin_tag_setting.html">标签设置</a>
+                        </li>
+                        <li role="presentation" class="active"><a
+                                href="admin_question_list.html">题目列表</a>
+                        </li>
+                    </ol>
+                </li>
+
+                <li role="presentation"><a
+                        href="" style="">面试反馈<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href="admin_question_feedback.html">题目反馈</a>
+                        </li>
+                    </ol>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+        <ol class="breadcrumb">
+            <li><a href="">首页</a>
+            </li>
+            <li><a href="">题型管理</a>
+            </li>
+            <li><a href="admin_question_list.html">题目列表</a>
+            </li>
+            <li class="active">题目录入</li>
+        </ol>
+
+        <div class="row">
+
+            <h3 class="page-header">题目录入</h3>
+
+            <div class="col-lg-12 col-sm-12">
+
+                <form id="formDto" class="form-horizontal" action="" method="post"
+                      enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">题目<em class="text-danger">*</em> </label>
+
+                        <div class="col-sm-10">
+
+                            <textarea name="title" class="form-control" rows="5"></textarea>
+
+                            <!--<input type="text" class="form-control" name="title" placeholder="请填写题目"/>-->
+
+                            <p class="help-block">必填</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">类型<em class="text-danger">*</em> </label>
+
+                        <div class="col-sm-10">
+
+                            <select name="type" class="form-control">
+
+                                <option value="radio">单选</option>
+                                <option value="multi">多选</option>
+                                <option value="non-standard">问答</option>
+
+                            </select>
+
+                            <p class="help-block">必选</p>
+                        </div>
+                    </div>
+
+                    <div id="radio-answer" class="form-group">
+                        <label class="col-sm-2 control-label">答案<em class="text-danger">*</em> </label>
+
+                        <div class="col-sm-10">
+
+                            <input type="radio" name="radio-answer" value="A" checked/> A&nbsp;
+                            <input type="radio" name="radio-answer" value="B"/> B&nbsp;
+                            <input type="radio" name="radio-answer" value="C"/> C&nbsp;
+                            <input type="radio" name="radio-answer" value="D"/> D&nbsp;
+
+                            <p class="help-block">必选</p>
+                        </div>
+                    </div>
+
+                    <div id="multi-answer" class="form-group hidden">
+                        <label class="col-sm-2 control-label">答案<em class="text-danger">*</em> </label>
+
+                        <div class="col-sm-10">
+
+                            <input type="checkbox" name="multi-answer" value="A" checked/> A&nbsp;
+                            <input type="checkbox" name="multi-answer" value="B"/> B&nbsp;
+                            <input type="checkbox" name="multi-answer" value="C"/> C&nbsp;
+                            <input type="checkbox" name="multi-answer" value="D"/> D&nbsp;
+
+                            <p class="help-block">必选,至少选择一个答案</p>
+                        </div>
+                    </div>
+
+                    <div id="non-standard-answer" class="form-group hidden">
+                        <label class="col-sm-2 control-label">答案<em class="text-danger">*</em> </label>
+
+                        <div class="col-sm-10">
+
+                            <textarea name="" class="form-control" rows="5"></textarea>
+
+                            <!--<div id="non-standard-summernote">
+
+
+                            </div>-->
+
+                            <p class="help-block">必填</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">标签<em class="text-danger">*</em> </label>
+
+                        <div class="col-sm-10">
+
+                            <input type="text" name="tags" class="form-control"/>
+
+                            <p class="help-block">请选择标签</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">难度<em class="text-danger">*</em> </label>
+
+                        <div class="col-sm-10">
+
+                            <input type="radio" name="difficulty" value="hard"/> 难&nbsp;
+                            <input type="radio" name="difficulty" value="middle" checked/> 中&nbsp;
+                            <input type="radio" name="difficulty" value="easy"/> 易&nbsp;
+
+                            <p class="help-block">必选</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-10">
+                            <button type="button" class="btn btn-primary" id="submitBtn">保存</button>
+                            <a href="admin_question_list.html">返回</a> &nbsp; <span><em class="text-danger">*</em>
+					代表必填值</span>
+
+                        </div>
+                    </div>
+                    <div>
+                        <input type="hidden" name="_csrf" value="f1b38c9e-c8e6-4618-91c7-ce4e41aa944f">
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+
+
+        <div>
+            <hr/>
+            <p class="text-muted text-center">&copy; 2016 筛子网</p>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<div class="aui_state_box" style="display: none">
+    <div class="aui_state_box_bg"></div>
+    <div class="aui_alert_zn aui_outer" id="drag_con">
+        <table class="aui_border" style="border:2px solid #8a9499;">
+            <tbody>
+            <tr>
+                <td class="aui_w"></td>
+                <td class="aui_c">
+                    <div class="aui_inner">
+                        <table class="aui_dialog">
+                            <tbody>
+                            <tr>
+                                <td class="aui_header" colspan="2">
+                                    <div class="aui_titleBar">
+                                        <div class="aui_title" style="cursor: move;">选择标签</div>
+                                        <a href="javascript:;" class="aui_close" onclick="Close()">×</a></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="aui_icon" style="display: none;">
+                                    <div class="aui_iconBg"
+                                         style="background: transparent none repeat scroll 0% 0%;"></div>
+                                </td>
+                                <td class="aui_main" style="width: auto; height: auto;">
+                                    <div class="aui_content" style="padding: 0px;">
+                                        <div style="width: 900px; position:relative ">
+                                            <div class="data-result aui-titlespan"><em>最多选择 <strong>5</strong>
+                                                项</em></div>
+                                            <div class="data-tabs">
+                                                <ul>
+                                                    <li onclick="removenode(this,0)" data-selector="tab-all"
+                                                        class="active"><a
+                                                            href="javascript:;"><span>一级标签</span><em></em></a></li>
+                                                </ul>
+                                            </div>
+                                            <!--一级标签-->
+                                            <div class="data-container data-container-0">
+                                                <div class="view-all">
+                                                    <div class="cate-list-normal">
+                                                        <div class="cate-list-title"><em>一级标签</em></div>
+                                                        <ul class="clearfix" id="znhy-table">
+                                                            <li><a href="javascript:;" data-code="1"
+                                                                   data-name="综合题型" class="d-cate"
+                                                                   onclick="show_second_node(this)">综合题型</a>
+                                                            </li>
+                                                            <li><a href="javascript:;" data-code="2"
+                                                                   data-name="专业题型" class="d-cate"
+                                                                   onclick="show_second_node(this)">专业题型</a>
+                                                            </li>
+                                                            <li><a href="javascript:;" data-code="3"
+                                                                   data-name="难度" class="d-cate"
+                                                                   onclick="show_second_node(this)">难度</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--职能选择-大类行业-->
+                                            <div class="data-container data-container-1">
+                                                <div class="view-cate">
+                                                    <div class="cate-list-subs">
+                                                        <ul class="clearfix" id="znhy"></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--职能选择-职能-->
+                                            <div class="data-container data-container-2">
+                                                <div class="view-tree">
+                                                    <div class="tree-container">
+                                                        <div class="tree-list">
+                                                            <ul id="data-hy-d3j"></ul>
+                                                        </div>
+                                                        <div class="tree-item-list" style="height: 300px;">
+                                                            <div class="view-tree-items">
+                                                                <div class="item-list">
+                                                                    <ul id="data-hyzn-d3j" class="clearfix"></ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="data-error" style="display: none;">最多只能选择 5 项</div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="aui_footer" colspan="2">
+                                    <div class="aui_buttons">
+                                        <button class="aui-btn aui-btn-primary" type="button"
+                                                onclick="svae_znitem()">确定
+                                        </button>
+                                        <button class="aui-btn aui-btn-light" type="button" onclick="Close()">取消
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+                <td class="aui_e"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script>
+
+    function Close() {
+        $('.aui_state_box').hide();
+    }
+
+    function removenode(lithis, typeid) {
+        $(lithis).nextAll('li').remove();
+        $('.data-container-' + typeid).nextAll('.data-container').hide();
+        $('.data-container-' + typeid).show();
+    }
+
+    function show_second_node(conthis) {
+        var pid = $(conthis).data('code');
+        var pname = $(conthis).data('name');
+        $(conthis).parents('.data-container').hide();
+        show_second_tags(pid, pname);
+    }
+
+    //展示二级标签
+    function show_second_tags(pid, pname) {
+
+        //根据一级标签id查找子节点
+        var secondTags = [{id: 17, pId: 3, name: "难"},
+            {id: 18, pId: 3, name: "中"},
+            {id: 19, pId: 3, name: "易"}];
+
+        $('.data-container-1').show();
+        //添加标题
+        $('.data-tabs ul').append('<li onclick="removenode(this,1)" data-code="' + pid + '" class="active"><a href="javascript:;"><span>' + pname + '</span><em></em></a></li>');
+
+        var hyznstrVar = "";
+
+        for (var j in secondTags) {
+            hyznstrVar += "<li><a title=\"" + secondTags[j].name + "\" href=\"javascript:;\" data-code=\"" + secondTags[j].id + "\" data-name=\"" + secondTags[j].name + "\" data-ditem=\"" + secondTags[j].id + "\" class=\"d-item\" onclick=\"ditem_select(this)\">" + secondTags[j].name + "<\/a><\/li>";
+        }
+        $('#znhy').children().remove();
+        $('#znhy').html(hyznstrVar);
+        if ($('.data-result span').length > 0) {
+            $('.data-result span').each(function (index) {
+
+                $('#znhy a[data-ditem=' + $(this).data("code") + ']').addClass('d-item-active');
+            });
+        }
+
+
+    }
+
+    function ditem_select(conthis) {
+        if ($(conthis).attr("class").indexOf("d-item-active") > 0) {
+            $(conthis).removeClass("d-item-active");
+            $('.data-result span[data-code=' + $(conthis).data("code") + ']').remove();
+        } else {
+            if ($('.data-result span').length > 4) {
+                $('.data-error').slideDown();
+                setTimeout("$('.data-error').hide()", 1000);
+                return false;
+            } else {
+                $('.data-result').append("<span class=\"svae_box aui-titlespan\" data-code=\"" + $(conthis).data("code") + "\"  data-name=\"" + $(conthis).data("name") + "\" onclick=\"removespan(this)\">" + $(conthis).data("name") + "<i>×<\/i><\/span>");
+                $(conthis).addClass('d-item-active');
+            }
+        }
+    }
+
+
+    function removespan(spanthis) {
+        $('#data-hyzn-d3j a[data-ditem=' + $(spanthis).data("code") + ']').removeClass('d-item-active');
+        $('#znhy a[data-ditem=' + $(spanthis).data("code") + ']').removeClass('d-item-active');
+        $(spanthis).remove();
+    }
+
+    //确定选择
+    function svae_znitem() {
+
+        var val = '';
+        var valname = '';
+        if ($('.svae_box').length > 0) {
+            $('.svae_box').each(function () {
+                val += $(this).data("code") + '-';
+                valname += $(this).data("name") + '-';
+            })
+        }
+        if (val != '') {
+            val = val.substring(0, val.lastIndexOf('-'));
+        }
+        if (valname != '') {
+            valname = valname.substring(0, valname.lastIndexOf('-'));
+        }
+
+        $('input[name="tags"]').attr("data-value", val);
+        $('input[name="tags"]').val(valname);
+
+        $('.aui_state_box').hide();
+
+    }
+
+    $(function () {
+        $('input[name="tags"]').click(function () {
+            $('.aui_state_box').show();
+        });
+
+    });
+
+</script>
+</body>
+</html>

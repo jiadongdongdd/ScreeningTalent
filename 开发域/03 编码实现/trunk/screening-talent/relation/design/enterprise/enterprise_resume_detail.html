@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="X-CSRF-TOKEN" content="1d426c80-2e13-43c0-8795-9dba87d06487">
+    <link rel="shortcut icon" href="../static/favicon.ico">
+
+    <title>简历详情 | 前台</title>
+
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="../static/css/xsifter.css" rel="stylesheet"/>
+
+    <script src="../static/jquery.min.js"></script>
+
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <style>
+        .navbar {
+            height: 56px;
+        }
+
+        .invite_register {
+            position: relative;
+            min-width: 50px;
+            height: 56px;
+            display: inline-block;
+            top: 8px;
+        }
+
+        .navbar .navbar-inner {
+            border: 0;
+            -webkit-border-radius: 0;
+            -webkit-background-clip: padding-box;
+            -moz-border-radius: 0;
+            -moz-background-clip: padding;
+            border-radius: 0;
+            background-clip: padding-box;
+            margin: 0;
+            padding-left: 0;
+            padding-right: 0;
+            min-height: 55px;
+            position: relative;
+            background: #333;
+        }
+
+        #log_out {
+            width: 100%;
+            margin: 0px;
+            height: 45px;
+            text-align: left;
+            padding-left: 24%;
+            line-height: 45px;
+            border-bottom: 1px dotted #000;
+            color: #303030;
+            font-weight: bold;
+            font-size: 13px;
+            font-family: "Microsoft YaHei";
+            position: relative;
+            top: 5px;
+        }
+
+        #navbar .nav.navbar-nav.navbar-right li:nth-child(1) {
+            margin-right: 31px;
+            margin-top: -8px;
+        }
+
+        .table {
+            width: 60%;
+            border: 0;
+            cellspacing: 0;
+            cellpadding: 0;
+
+        }
+
+        .table tbody tr td {
+            border-top: 0px solid;
+            padding: 6px;
+        }
+
+        /* 定义辅助CSS来美化简历头部 */
+        body {
+            font-family: 'microsoft yahei', Arial, sans-serif;
+        }
+
+        .cvheader {
+            border-bottom: 1px solid #DFDFDF;
+            padding-top: 30px;
+            padding-bottom: 20px;
+        }
+
+        .cvheader h1 {
+            margin: 0;
+        }
+
+        .address {
+            background: #efb73e;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        /* 定义辅助CSS来美化简历主体 */
+
+        .cvbody {
+            padding-top: 50px;
+        }
+
+        .cbox {
+            margin-bottom: 30px;
+            color: #FFF;
+            padding: 50px;
+        }
+
+        /* 定义cbox颜色 */
+        .green {
+            background: #2ecc71;
+        }
+
+        .orange {
+            background: orange;
+        }
+
+        .red {
+            background: #dd4814;
+        }
+
+        .bbox {
+            border: 1px solid #DFDFDF;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            padding: 50px;
+        }
+
+        .footer {
+            margin: 30px 0 30px;
+            padding: 50px;
+            background: #CCC;
+            color: #FFF;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=""><img alt="Brand"
+                                                 src="../static/logo.png"> </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a id="adminPage" href=""
+                       class="invite_register">邀请注册</a></li>
+
+
+                <li><span class="welcome">欢迎您 </span></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown" role="button" aria-haspopup="true"
+                                        aria-expanded="false">&nbsp;admin<span
+                        class="caret"></span> </a>
+                    <ul class="dropdown-menu">
+                        <li></li>
+                        <li role="separator" class="dropdown-footer" id="logins">
+                            <form action="" role="search" method="post">
+                                <input type="hidden" name="_csrf"
+                                       value="f1b38c9e-c8e6-4618-91c7-ce4e41aa944f"/>
+                                <button type="submit" class="fa fa-sign-out danger" id="log_out">退出</button>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div id="click" class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-pills nav-stacked" id="mainMenu">
+
+                <li role="presentation"><a
+                        href="" style="">企业管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation" class="active"><a
+                                href="enterprise_employee_list.html">职工信息</a>
+                        </li>
+                    </ol>
+                </li>
+
+                <li role="presentation"><a
+                        href="" style="">简历管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href="enterprise_resume_drag_form.html">拖入简历</a>
+                        </li>
+
+                        <li role="presentation"><a
+                                href="enterprise_resume_center.html">简历中心</a>
+                        </li>
+                    </ol>
+                </li>
+
+                <li role="presentation"><a
+                        href="" style="">题库管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href="enterprise_exam_history.html">试卷记录</a>
+                        </li>
+                        <li role="presentation"><a
+                                href="enterprise_interview_result.html">面试结果</a>
+                        </li>
+                    </ol>
+                </li>
+
+                <li role="presentation"><a
+                        href="" style="">招聘管理<i
+                        class="glyphicon glyphicon-menu-down"></i> </a>
+                    <ol class="nav nav-pills nav-stacked">
+                        <li role="presentation"><a
+                                href="enterprise_hr_performance_report.html">业绩报告</a>
+                        </li>
+                    </ol>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+        <ol class="breadcrumb">
+            <li><a href="">首页</a>
+            </li>
+            <li><a href="">企业管理</a>
+            </li>
+            <li><a href="enterprise_employee_list.html">职工信息</a>
+            </li>
+            <li class="active">详情</li>
+        </ol>
+
+        <div class="row">
+
+            <h3 class="page-header">详情</h3>
+
+            <div class="pull-right">
+                <a href="enterprise_employee_list.html" class="btn btn-primary">返回</a>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="row cvheader">
+                <div class="col-lg-7 col-md-7 col-xs-12">
+                    <!--  添加颜色//-->
+                    <h1 class="text-primary">西门富贵</h1>
+                    <!--  添加图标 //-->
+                    <p><span class="glyphicon glyphicon-paperclip"></span>项目经理</p>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-xs-12">
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-4 col-xs-4">
+                            <p id="contact" class="address text-center">联系方式</p>
+                        </div>
+
+                        <div class="col-lg-8 col-md-8 col-xs-8">
+                            <p><span class="glyphicon glyphicon-envelope"></span> 12345678@qq.com</p>
+
+                            <p><span class="glyphicon glyphicon-earphone"></span> 12345678901</p>
+
+                            <p><span class="glyphicon glyphicon-road"></span> 北京市海淀区</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-xs-12">
+                    <p>
+                        <!-- 这里定义图片为响应式，并且添加圆角效果，以便保证图片在不同设备上都可以完美显示 //-->
+                        <img data-toggle="tooltip" data-placement="left" id="avatar" title="西门富贵"
+                             class="img-responsive img-rounded"
+                             src="http://www.gbtags.com/gb/networks/avatars/13d6393f-a44c-4180-8cb6-7bf0e4776283.png"
+                             alt="">
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 定义简历的主体部分 //-->
+
+        <div class="container">
+            <div class="row cvbody">
+
+                <!-- 这里定义两个区域，布局定义如下：//-->
+
+                <div class="col-lg-6 col-md-6 col-xs-12">
+
+                    <div class="row">
+
+                        <div class="cbox green">
+                            <h4>其他基本信息</h4>
+
+                            <p>
+                                性别：男 &nbsp;&nbsp;&nbsp; 身份证号：12345679012345678
+                            </p>
+
+                            <p>
+                                现居地：北京市海淀区
+                            </p>
+                        </div>
+
+                        <div class="cbox orange">
+                            <h4>简历信息</h4>
+
+                            <p>
+                                简历来源：智联招聘
+                            </p>
+
+                            <p>
+                                原始ID：0999
+                            </p>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <!-- 为了清楚的分割两个区域，这里我们添加了一个空白区域，或者也可以在CSS中定义Margin实现//-->
+                <div class="col-lg-1 col-md-1 col-xs-12"></div>
+
+                <div class="col-lg-5 col-md-5 col-xs-12">
+
+                    <div class="row">
+                        <div class="bbox">
+                            <h4>教育背景</h4>
+
+                            <p>学历：本科
+                            </p>
+                        </div>
+                        <div class="bbox">
+                            <h4>工作经验</h4>
+
+                            <p>腾讯视频 2016-07~2016-09</p>
+
+                            <p>腾讯视频 2015-07~2016-07</p>
+
+                            <p>腾讯视频 2016-01~2016-07</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div>
+            <hr/>
+            <p class="text-muted text-center">&copy; 2016 筛子网</p>
+        </div>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

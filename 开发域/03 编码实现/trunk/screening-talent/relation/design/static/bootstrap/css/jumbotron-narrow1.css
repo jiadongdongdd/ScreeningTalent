@@ -1,0 +1,115 @@
+/* Space out content a bit */
+* {
+	font-family: "微软雅黑"
+}
+
+body {
+	padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.marketing {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+/* Customize container */
+@media ( min-width : 538px) {
+	#ban.container {
+		max-width: 510px;
+		padding: 0px;
+	}
+	#ban.container .jumbotron {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	#ban.container .jumbotron .lead:nth-child(1) {
+		text-align: left;
+		font-size: 25px;
+		color: #7b7c7e;
+	}
+	#ban.container .jumbotron .lead:nth-child(2) {
+		margin-top: 70px;
+	}
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+	text-align: center;
+}
+
+.jumbotron .btn {
+	padding: 14px 24px;
+	font-size: 21px;
+}
+/* nav-top*/
+.navbar-brand {
+	padding-top: 8px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+.navbar-brand img {
+	width: 100px;
+	height: 50px;
+}
+
+nav.navbar .container .navbar-collapse ul#index li {
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-left: 40px;
+}
+
+nav.navbar .container .navbar-collapse #index.nav.navbar-nav.navbar-right li a
+	{
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	color: #d5d6d8;
+	line-height: 35px;
+	margin-bottom: 5px;
+}
+
+nav.navbar .container .navbar-collapse ul#index li a.active {
+	border-bottom: 3px solid #ffd12f;
+	padding-top: 20px;
+}
+
+/*****/
+#ban {
+	margin-top: 18%;
+}
+
+#ban .jumbotron p .btn {
+	font-size: 15px;
+	width: 120px;
+}
+
+#ban .jumbotron p .btn:nth-child(1) {
+	background: #d7b94c;
+	border: 2px solid #d7b94c;
+	margin-right: 20px;
+	color: #fff;
+}
+
+#ban .jumbotron p .btn:nth-child(2) {
+	background: white;
+	border: 2px solid #c6b26c;
+	margin-right: 20px;
+	color: #555;
+}
+
+@media ( max-width : 600px) {
+	#ban .jumbotron p .btn {
+		width: 80px;
+		font-size: 12px;
+		text-align: center;
+		padding-left: 0px;
+		padding-right: 0px;
+		margin-top: 10px;
+	}
+	#ban .jumbotron .lead {
+		border: 1px solid #ffffff;
+	}
+}
